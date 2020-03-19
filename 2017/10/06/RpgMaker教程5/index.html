@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="RpgMaker教程5Step11 让我们创造一个英雄角色在RpgMaker的数据库中默认初始化设置了一些数据,例如角色,怪物等数据. 打开游戏中的数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RpgMaker教程5">
+<meta property="og:url" content="http://www.gengzhibo.com/2017/10/06/RpgMaker教程5/index.html">
+<meta property="og:site_name" content="Clwater Blog">
+<meta property="og:description" content="RpgMaker教程5Step11 让我们创造一个英雄角色在RpgMaker的数据库中默认初始化设置了一些数据,例如角色,怪物等数据. 打开游戏中的数据库">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/22028.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/42542596.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/894305.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/16724796.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/71726307.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/55925694.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/53965285.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/15362978.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/93210400.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/81607793.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/99759838.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/14243586.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/83684284.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/42873202.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/3792988.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/90806645.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/96995937.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/28111494.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/93585120.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/27242709.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/87720825.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/77422347.jpg">
+<meta property="og:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/50304687.jpg">
+<meta property="og:updated_time" content="2020-03-13T09:33:05.454Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RpgMaker教程5">
+<meta name="twitter:description" content="RpgMaker教程5Step11 让我们创造一个英雄角色在RpgMaker的数据库中默认初始化设置了一些数据,例如角色,怪物等数据. 打开游戏中的数据库">
+<meta name="twitter:image" content="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/22028.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://www.gengzhibo.com/2017/10/06/RpgMaker教程5/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>RpgMaker教程5 | Clwater Blog</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=lNP76mYaRwoT2O5x1-Iv1xB80eIAnZLGQXiwdfnQneI"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'lNP76mYaRwoT2O5x1-Iv1xB80eIAnZLGQXiwdfnQneI');
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d62d5f2846e8623f48fe847021d53b14";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Clwater Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">bug如风 常伴吾身</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>Schedule</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/clwater" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.gengzhibo.com/2017/10/06/RpgMaker教程5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="clwater">
+      <meta itemprop="description" content="日常写bug 顺便留点痕迹">
+      <meta itemprop="image" content="/images/myicon.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clwater Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RpgMaker教程5
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-10-06 21:14:13" itemprop="dateCreated datePublished" datetime="2017-10-06T21:14:13+08:00">2017-10-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-03-13 17:33:05" itemprop="dateModified" datetime="2020-03-13T17:33:05+08:00">2020-03-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/RpgMaker-教程/" itemprop="url" rel="index"><span itemprop="name">RpgMaker 教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2017/10/06/RpgMaker教程5/" class="leancloud_visitors" data-flag-title="RpgMaker教程5">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="RpgMaker教程5"><a href="#RpgMaker教程5" class="headerlink" title="RpgMaker教程5"></a>RpgMaker教程5</h1><h2 id="Step11-让我们创造一个英雄角色"><a href="#Step11-让我们创造一个英雄角色" class="headerlink" title="Step11 让我们创造一个英雄角色"></a>Step11 让我们创造一个英雄角色</h2><p>在RpgMaker的数据库中默认初始化设置了一些数据,例如角色,怪物等数据.</p>
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/22028.jpg" alt="打开游戏的数据库"><br>打开游戏中的数据库<br><a id="more"></a></p>
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/42542596.jpg" alt="数据库页面"></p>
+<center>数据库页面,根据版本或者设置不同,可能部分数据不同</center>
+
+<h3 id="创建应该一个新的角色"><a href="#创建应该一个新的角色" class="headerlink" title="创建应该一个新的角色"></a>创建应该一个新的角色</h3><p>我们可以在”数据库”中的”角色”标签中对角色进行编辑.</p>
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/894305.jpg" alt="变更角色最大数量"></p>
+<p>我们在左下方的部分可以设置最大角色数量.当前是1,如果想要设置更多的角色,要先修改最大角色数量.如果我们创建一个新的角色,就先将最大角色设置为2.</p>
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/16724796.jpg" alt="设置最大角色数量为2"></p>
+<center>设置最大角色数量为2</center>
+
+<p>设置最大角色数量为2,新的角色还没有设置内容,所以只显示了”0002”</p>
+<h3 id="设置角色名称"><a href="#设置角色名称" class="headerlink" title="设置角色名称"></a>设置角色名称</h3><p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/71726307.jpg" alt="设置角色名称"></p>
+<center>设置角色名称</center>
+
+<p>我们设置角色的名称为”王富贵”,我们还可以设置角色的昵称和简称的内容.</p>
+<h3 id="设置角色形象"><a href="#设置角色形象" class="headerlink" title="设置角色形象"></a>设置角色形象</h3><p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/55925694.jpg" alt="设置角色图像"></p>
+<center>设置角色图像</center>
+
+
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/53965285.jpg" alt="设置角色脸图"></p>
+<center>设置角色脸图</center>
+
+
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/15362978.jpg" alt="设置角色行走图"></p>
+<center>设置角色行走图</center>
+
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/93210400.jpg" alt="设置角色战斗图"></p>
+<center>设置角色战斗图</center>
+
+<p>通过双击”角色”标签”图像”位置的三个不同图像部分来设置不同需求时的图像.</p>
+<h3 id="设置角色职业"><a href="#设置角色职业" class="headerlink" title="设置角色职业"></a>设置角色职业</h3><p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/81607793.jpg" alt="设置角色职业"></p>
+<p>通过下拉菜单来选择默认提供的几个职业.</p>
+<h3 id="设置职业信息"><a href="#设置职业信息" class="headerlink" title="设置职业信息"></a>设置职业信息</h3><blockquote>
+<p>不同版本的面板有做不同 已mv版本为主.</p>
+</blockquote>
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/99759838.jpg" alt="数据库职业标签"></p>
+<center>数据库职业标签</center>
+
+<h4 id="设置经验值曲线"><a href="#设置经验值曲线" class="headerlink" title="设置经验值曲线"></a>设置经验值曲线</h4><p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/14243586.jpg" alt="经验值曲线"></p>
+<center>经验值曲线</center>
+
+<p>我们可以根据需求和职业特色来针对不同的职业设置不同的经验曲线</p>
+<h4 id="设置能力曲线"><a href="#设置能力曲线" class="headerlink" title="设置能力曲线"></a>设置能力曲线</h4><p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/83684284.jpg" alt="能力曲线"></p>
+<center>能力缺陷</center>
+
+
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/42873202.jpg" alt="能力值设置"></p>
+<center>能力值设置</center>
+
+<p>同样可以通过各种参数设置具有职业特色职业能力曲线.</p>
+<h4 id="设置职业技能"><a href="#设置职业技能" class="headerlink" title="设置职业技能"></a>设置职业技能</h4><p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/3792988.jpg" alt="设置职业技能"></p>
+<center>设置职业技能</center>
+
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/90806645.jpg" alt="数据库技能标签"></p>
+<center>数据库技能标签</center>
+
+<p>关于角色的技能可以通过技能标签页面来进行修改.</p>
+<h3 id="设置角色初始装备"><a href="#设置角色初始装备" class="headerlink" title="设置角色初始装备"></a>设置角色初始装备</h3><p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/96995937.jpg" alt="角色初始装备"></p>
+<center>角色初始装备</center>
+
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/28111494.jpg" alt="武器标签页"></p>
+<center>武器标签页</center>
+
+<p>可以切换到武器标签页对武器进行编辑,针对不同的角色可以针对的设置不同的初始武器.</p>
+<h3 id="设置角色特性"><a href="#设置角色特性" class="headerlink" title="设置角色特性"></a>设置角色特性</h3><p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/93585120.jpg" alt="角色特性面板"></p>
+<center>角色特性面板</center>
+
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/27242709.jpg" alt="设置角色特性"></p>
+<center>设置角色特性</center>
+
+<h3 id="设置初始角色队伍"><a href="#设置初始角色队伍" class="headerlink" title="设置初始角色队伍"></a>设置初始角色队伍</h3><p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/87720825.jpg" alt="系统页面"></p>
+<center>系统页面</center>
+
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/77422347.jpg" alt="初始队伍编辑"></p>
+<center>初始队伍编辑</center>
+
+<p>选择”系统”标签页,可以看到初始队伍的面板,右键已经添加的角色,可以对初始队伍的角色进行编辑和删除.</p>
+<p>设置成功并保存后,让我们进入游戏打开菜单,测试一下我们的初始队伍是否和期望的一样.</p>
+<p><img src="https://qiniu-ali-oss.oss-cn-hangzhou.aliyuncs.com/qiniuold/50304687.jpg" alt="游戏中的菜单页面"></p>
+<center>游戏中的菜单页面</center>
+
+<p>可以看到,我们针对初始队伍的设置是成功的.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/04/RpgMaker教程4/" rel="next" title="RpgMaker教程4">
+                <i class="fa fa-chevron-left"></i> RpgMaker教程4
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/04/https/" rel="prev" title="Https从了解到算了">
+                Https从了解到算了 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTc4MC82MzQ2"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/myicon.jpeg" alt="clwater">
+            
+              <p class="site-author-name" itemprop="name">clwater</p>
+              <p class="site-description motion-element" itemprop="description">日常写bug 顺便留点痕迹</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/clwater" title="GitHub &rarr; https://github.com/clwater" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/suoldevil19" title="Weibo &rarr; http://weibo.com/suoldevil19" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/gengzhibo/activities" title="Zhihu &rarr; https://www.zhihu.com/people/gengzhibo/activities" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/gengzhibo@gengzhibo.net" title="Email &rarr; gengzhibo@gengzhibo.net"><i class="fa fa-fw fa-envelope"></i>Email</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://gitbug.top" title="http://gitbug.top" rel="noopener" target="_blank">BookLibrary</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RpgMaker教程5"><span class="nav-number">1.</span> <span class="nav-text">RpgMaker教程5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step11-让我们创造一个英雄角色"><span class="nav-number">1.1.</span> <span class="nav-text">Step11 让我们创造一个英雄角色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建应该一个新的角色"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建应该一个新的角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置角色名称"><span class="nav-number">1.1.2.</span> <span class="nav-text">设置角色名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置角色形象"><span class="nav-number">1.1.3.</span> <span class="nav-text">设置角色形象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置角色职业"><span class="nav-number">1.1.4.</span> <span class="nav-text">设置角色职业</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置职业信息"><span class="nav-number">1.1.5.</span> <span class="nav-text">设置职业信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置经验值曲线"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">设置经验值曲线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置能力曲线"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">设置能力曲线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置职业技能"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">设置职业技能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置角色初始装备"><span class="nav-number">1.1.6.</span> <span class="nav-text">设置角色初始装备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置角色特性"><span class="nav-number">1.1.7.</span> <span class="nav-text">设置角色特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置初始角色队伍"><span class="nav-number">1.1.8.</span> <span class="nav-text">设置初始角色队伍</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">clwater</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2017/10/06/RpgMaker教程5/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'XUzGKfuL0SWqGNbAtiml2AoK-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'XUzGKfuL0SWqGNbAtiml2AoK-gzGzoHsz',
+                'X-LC-Key': 'QabKH7LligrztykhrA1kWPqj',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
